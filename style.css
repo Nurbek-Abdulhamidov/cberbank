@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+body{
+    background: #ccc;
+}
+
+.header{
+    height: 80px;
+    background: #fff;
+    padding: 20px 0;
+    position: relative;
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar img{
+    position: relative;
+    height: 60px;
+}
+ul {
+    display: flex;
+    list-style: none;
+    line-height: 30px;  
+}
+ul li {
+    margin: 0 20px;
+}
+ul li a {
+    position: relative;
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+}
+ul li a::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #000;
+    bottom: -5px;
+    transition: 0.4s transform;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+ul li a:hover::before{
+    transform: scaleX(1);
+     transform-origin: left;
+}
+label #btn,
+label #cancel {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 25px;
+    cursor: pointer;
+    transform: translate(0,-50%);
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 800px) {
+     label #btn {
+         display: inline-block;
+     }
+    ul {
+         position: fixed;
+         top: 0px;
+         right: -100%;
+         width: 50%;
+         height: 100vh;
+         padding-top: 80px;
+         display: block;
+         line-height: 40px;
+         z-index: 100;
+         background-color: #000;
+        transition: 0.5s;
+    }
+    ul li {
+        margin-left: 50px;
+    }
+    ul li a{
+        color: #fff;
+        font-size: 20px;
+    }
+    #check:checked ~ ul {
+        right: 0;
+    }
+    #check:checked ~ label #cancel{
+        display:none;
+    }
+    #check:checked ~ label #cancel{
+        display: block;
+        z-index: 101;
+        color: #fff;
+    }
+}
